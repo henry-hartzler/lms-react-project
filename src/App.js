@@ -1,11 +1,11 @@
-import Counter from './features/counter/Counter';
 import './App.css';
+import RewardStudents from './pages/RewardStudents';
 
 function App() {
   return (
-    <>
-      <Counter />
-    </>
+    <div className='App'>
+      <RewardStudents />
+    </div>
   );
 }
 
