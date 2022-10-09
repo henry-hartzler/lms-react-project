@@ -10,6 +10,7 @@ const StudentsList = () => {
             {students.map(student => {
                 return (
                     <Col
+                        md='3'
                         className="m-4"
                         key={student.id}
                     >
