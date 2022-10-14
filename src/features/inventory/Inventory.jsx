@@ -1,19 +1,18 @@
-import { useState } from "react";
 import { Row, Col, Badge } from "reactstrap";
 
-const Inventory = () => {
-  const [count, setCount] = useState(0);
-
-
+const Inventory = ({ inv }) => {
+  
   return (
-    <Row>
-      <Col>
-          <Badge 
-            color={count === 0 ? 'secondary' : count < 0 ? 'danger' : 'success'} 
-            className="m-3 p-3"
-          >
-            {count}
-          </Badge>
+    <Row className="d-flex flex-row-reverse">
+      <Col md='4'>
+        <h3>
+            <Badge 
+              color={inv === 0 ? 'secondary' : inv < 0 ? 'danger' : 'primary'} 
+              className="m-3 p-3"
+            >
+              {inv}
+            </Badge>
+        </h3>
       </Col>
     </Row>
     );
