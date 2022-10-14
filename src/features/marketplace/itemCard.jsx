@@ -1,11 +1,10 @@
-import { Card, CardImg, CardTitle } from "reactstrap"; 
+import { Card, CardBody, CardImg, CardTitle } from "reactstrap"; 
+import Inventory from "../inventory/Inventory";
 
 
 const ItemCard = ({ item }) => {
-    const {img, name} = item;
+    const {img, name, price} = item;
 
-    // right now, name spacing is off when shrinking screens
-    // make better responsive
     return (
         <Card body>
             <CardImg 
@@ -16,7 +15,8 @@ const ItemCard = ({ item }) => {
                 top
             />
             <CardTitle className="m-3" tag='h1'>{name}</CardTitle>
-            
+            <CardBody className="m-3" tag='h3'>${price}</CardBody>
+            <Inventory />
         </Card>
       );
 }
