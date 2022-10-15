@@ -1,10 +1,11 @@
-import React from 'react';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
 import RewardStudents from './pages/RewardStudents';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
+
       <RewardStudents />
     </div>
   );
