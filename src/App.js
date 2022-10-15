@@ -1,3 +1,4 @@
+import React from 'react';
 import RewardStudents from './pages/RewardStudents';
 import './App.css';
 
