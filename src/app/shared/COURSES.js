@@ -1,5 +1,7 @@
-import physics from '../assets/physics'
-import algebra from '../assets/algebra'
+import physics from '../assets/img/physics.jpg';
+import algebra from '../assets/img/algebra.jpeg';
+import chemistry from '../assets/img/chemistry.jpg';
+import english from '../assets/img/english.jpg';
 
 export const COURSES = [
     {
@@ -20,18 +22,18 @@ export const COURSES = [
     },
     {
         id: 2,
-        courseNumber: 'Physics I',
-        name: 'Basic Physics',
+        courseNumber: 'Chemistry I',
+        name: 'Basic Chemistry',
         year: 2019,
-        image: physics,
-        teacher: 'Henry'    
+        image: chemistry,
+        teacher: 'Talha'    
     },
     {
         id: 3,
-        courseNumber: 'Physics I',
-        name: 'Basic Physics',
+        courseNumber: 'English I',
+        name: 'Basic English',
         year: 2019,
-        image: physics,
+        image: english,
         teacher: 'Henry'    
     }
 ];

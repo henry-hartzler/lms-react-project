@@ -37,3 +37,8 @@
     transform: translateY(0px);
   }
 }
+
+
+.navbar-brand img {
+  margin-right: 1rem;
+}
