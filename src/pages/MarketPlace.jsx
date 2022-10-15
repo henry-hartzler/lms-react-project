@@ -1,5 +1,5 @@
 import { Container } from "reactstrap";
-import ItemList from "../features/marketplace/ItemList";
+import ItemList from "../features/marketplace/itemList";
 
 const MarketPlace = () => {
     return (
@@ -9,4 +9,5 @@ const MarketPlace = () => {
       );
 }
  
+
 export default MarketPlace;
