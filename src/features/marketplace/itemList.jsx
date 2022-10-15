@@ -1,5 +1,5 @@
 import { Row, Col } from "reactstrap";
-import ItemCard from "./ItemCard";
+import ItemCard from "./itemCard";
 import { selectAllItems } from "./itemSlice";
 
 const ItemList = () => {
