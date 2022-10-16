@@ -1,32 +1,60 @@
-import education from '../app/assets/img/learning-svgrepo-com.svg';
-import {
-  Navbar,
+import { useState } from 'react';
+import { 
+  Navbar, 
   NavbarBrand,
-} from 'reactstrap';
+  Collapse,
+  NavbarToggler,
+  Nav,
+  NavItem
+} from "reactstrap";
+import { NavLink } from "react-router-dom";
+import education from '../app/assets/img/learning-svgrepo-com.svg';
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div>
-      <Navbar
-           className="my-2"
-           color="secondary"
-           dark
-       >
-        <NavbarBrand className='ms-4' href="/">
-            <img
-            alt="logo"
-            src={education}
-            style={{
-                height: 80,
-                width: 80
-            }}
-            className='float-start'
-            />
-            <h1 className='mt-2 px-5'>Learning Management System</h1>
-        </NavbarBrand>
-      </Navbar>
-    </div>
+    <Navbar
+         className="mb-2" color="secondary" dark sticky='top' expand='md'
+     >
+      <NavbarBrand className='ms-4' href="/">
+          <img
+          alt="logo"
+          src={education}
+          style={{
+              height: 80,
+              width: 80
+          }}
+          className='float-start'
+          />
+          <h1 className='mt-2 px-5'>Learning Management System</h1>
+      </NavbarBrand>
+      <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} />
+        <Collapse isOpen={menuOpen} navbar>
+          <Nav className='ms-auto' navbar>
+          <NavItem>
+            <NavLink className='nav-link' to='/'>
+              Home
+            </NavLink>
+          </NavItem>
+            <NavItem>
+              <NavLink className='nav-link' to='courses'>
+                Courses
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink className='nav-link' to='rewards'>
+                Rewards
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink className='nav-link' to='marketplace'>
+                Marketplace
+              </NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
+    </Navbar>
   );
 }
 
