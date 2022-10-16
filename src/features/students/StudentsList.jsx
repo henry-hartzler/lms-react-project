@@ -1,9 +1,10 @@
+import { useSelector } from "react-redux";
 import { Row, Col } from "reactstrap";
 import StudentCard from "./StudentCard";
 import { selectAllStudents } from "./studentsSlice";
 
 const StudentsList = () => {
-    const students = selectAllStudents();
+    const students = useSelector(selectAllStudents);
 
     return (
         <Row className="ms-auto">
