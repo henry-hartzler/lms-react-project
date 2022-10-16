@@ -1,10 +1,9 @@
 import { Container } from "reactstrap";
-import RewardStudents from "./RewardStudents";
 
 const HomePage = () => {
     return (
         <Container>
-        <RewardStudents />
+          <h1>HomePage to follow</h1>
         </Container>
       );
 }
