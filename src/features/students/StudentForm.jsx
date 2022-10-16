@@ -5,6 +5,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import { addStudent } from "./studentsSlice";
 import sparky from '../../app/assets/img/starky-sm.svg';
 import piceratops from '../../app/assets/img/piceratops-sm.svg';
+import { validateStudentForm } from "../../utils/validateStudentForm";
 
 const StudentForm = ({ studentId }) => {
     const [modalOpen, setModalOpen] = useState(false);
@@ -36,6 +37,7 @@ const StudentForm = ({ studentId }) => {
                             img: undefined
                         }}
                         onSubmit={handleSubmit}
+                        validate={validateStudentForm}
                     >
                         <Form>
                             <FormGroup>
@@ -47,6 +49,9 @@ const StudentForm = ({ studentId }) => {
                                     placeholder='Student name'
                                     className='form-control'
                                 />
+                                <ErrorMessage name='name'>
+                                        {(msg) => <p className="text-danger">{msg}</p>}
+                                    </ErrorMessage>
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="img">
@@ -61,6 +66,9 @@ const StudentForm = ({ studentId }) => {
                                     <option value={sparky}>Sparky</option>
                                     <option value={piceratops}>Piceratops</option>
                                 </Field>
+                                <ErrorMessage name='img'>
+                                        {(msg) => <p className="text-danger">{msg}</p>}
+                                    </ErrorMessage>
                             </FormGroup>
                             <Button type="submit" color="primary">
                                 Submit
