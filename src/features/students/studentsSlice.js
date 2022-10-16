@@ -25,4 +25,4 @@ export const { addStudent } = studentsSlice.actions
 
 export const selectAllStudents = state => state.students.studentsArray;
 
-export const selectStudentById = id => state => state.students.studentsArray.find(s => s.id === id);
+export const selectStudentById = id => state => state.students.studentsArray.find(s => s.id === parseInt(id));
