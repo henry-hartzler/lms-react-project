@@ -1,5 +1,5 @@
 import { Container } from "reactstrap";
-import ItemList from "../features/marketplace/itemList";
+import ItemList from "../features/marketplace/ItemList";
 
 const MarketPlace = () => {
     return (
