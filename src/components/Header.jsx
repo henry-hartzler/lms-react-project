@@ -33,10 +33,10 @@ const Header = () => {
         <Collapse isOpen={menuOpen} navbar>
           <Nav className='ms-auto' navbar>
           <NavItem>
-            <NavLink className='nav-link' to='/'>
-              Home
-            </NavLink>
-          </NavItem>
+              <NavLink className='nav-link' to='/' end>
+                Home
+              </NavLink>
+            </NavItem>
             <NavItem>
               <NavLink className='nav-link' to='courses'>
                 Courses
