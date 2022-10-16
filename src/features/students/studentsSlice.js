@@ -23,6 +23,6 @@ export const studentsReducer = studentsSlice.reducer
 
 export const { addStudent } = studentsSlice.actions
 
-export const selectAllStudents = () => STUDENTS;
+export const selectAllStudents = state => state.students.studentsArray;
 
-export const selectStudentById = id => STUDENTS.find(s => s.id === id);
+export const selectStudentById = id => state => state.students.studentsArray.find(s => s.id === id);
