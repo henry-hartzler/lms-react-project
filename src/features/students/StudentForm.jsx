@@ -15,7 +15,8 @@ const StudentForm = ({ studentId }) => {
         const student = {
             studentId: parseInt(studentId),
             name: values.name,
-            img: values.img
+            img: values.img,
+            points: 0
         }
         dispatch(addStudent(student))
         setModalOpen(false)

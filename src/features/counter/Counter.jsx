@@ -1,21 +1,20 @@
 import { useState } from "react";
 import { Row, Col, Button, Badge } from "reactstrap";
 
-const Counter = () => {
-  const [count, setCount] = useState(0);
-
+const Counter = ({ points }) => {
+  const [point, setPoints] = useState(points);
 
   return (
     <Row>
       <Col>
-        <Button outline color='primary' className="m-3" onClick={() => setCount(count - 1)}>-</Button>
+        <Button outline color='primary' className="m-3" onClick={() => setPoints(point - 1)}>-</Button>
           <Badge 
-            color={count === 0 ? 'secondary' : count < 0 ? 'danger' : 'success'} 
+            color={point === 0 ? 'secondary' : point < 0 ? 'danger' : 'success'} 
             className="m-3 p-3"
           >
-            {count}
+            {point}
           </Badge>
-        <Button outline color='primary' className="m-3" onClick={() => setCount(count + 1)}>+</Button>
+        <Button outline color='primary' className="m-3" onClick={() => setPoints(point + 1)}>+</Button>
       </Col>
     </Row>
     );

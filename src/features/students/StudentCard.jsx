@@ -2,7 +2,7 @@ import { Card, CardImg, CardTitle } from "reactstrap";
 import Counter from "../counter/Counter";
 
 const StudentCard = ({ student }) => {
-    const {img, name} = student;
+    const {img, name, points} = student;
 
     // right now, name spacing is off when shrinking screens
     // make better responsive
@@ -16,7 +16,7 @@ const StudentCard = ({ student }) => {
                 top
             />
             <CardTitle className="m-3" tag='h1'>{name}</CardTitle>
-            <Counter />
+            <Counter points={points} />
         </Card>
       );
 }
