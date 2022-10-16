@@ -43,8 +43,8 @@ const Header = () => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className='nav-link' to='rewards'>
-                Rewards
+              <NavLink className='nav-link' to='students'>
+                Students
               </NavLink>
             </NavItem>
             <NavItem>
