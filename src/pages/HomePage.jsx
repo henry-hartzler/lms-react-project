@@ -3,7 +3,7 @@ import { Container } from "reactstrap";
 const HomePage = () => {
     return (
         <Container>
-          <h1>HomePage to follow</h1>
+          <h2>HomePage to follow</h2>
         </Container>
       );
 }

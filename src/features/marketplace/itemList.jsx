@@ -10,7 +10,7 @@ const ItemList = () => {
             {items.map(item => {
                 return (
                     <Col
-                        md='3'
+                        md='2'
                         className="m-4"
                         key={item.id}
                     >
