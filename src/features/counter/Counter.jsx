@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { Row, Col, Button, Badge } from "reactstrap";
+import { increment, decrement, selectCount } from "./counterSlice";
+import { useDispatch } from "react-redux";
 
 const Counter = ({ points }) => {
   const [point, setPoints] = useState(points);
+
+
 
   return (
     <Row>
