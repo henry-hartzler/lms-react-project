@@ -12,6 +12,19 @@ const StudentForm = ({ studentId }) => {
 
     const dispatch = useDispatch();
 
+    const getRandomAvatar = () => {
+        const avatars = [
+            sparky,
+            piceratops
+        ]
+        const randomIdx = arr => {
+            return Math.floor(Math.random() * arr.length)
+        }
+        return avatars[randomIdx(avatars)]
+    }
+
+    let randomAv = getRandomAvatar();
+
     const handleSubmit = values => {
         const student = {
             studentId: parseInt(studentId),
@@ -20,6 +33,7 @@ const StudentForm = ({ studentId }) => {
             points: 0
         }
         dispatch(addStudent(student))
+        randomAv = getRandomAvatar();
         setModalOpen(false)
     }
 
@@ -65,6 +79,7 @@ const StudentForm = ({ studentId }) => {
                                     <option>Select...</option>
                                     <option value={sparky}>Sparky</option>
                                     <option value={piceratops}>Piceratops</option>
+                                    <option value={randomAv}>Random</option>
                                 </Field>
                                 <ErrorMessage name='img'>
                                         {(msg) => <p className="text-danger">{msg}</p>}
