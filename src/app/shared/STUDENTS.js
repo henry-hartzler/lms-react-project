@@ -8,6 +8,24 @@ import piceratopsSm from '../assets/img/piceratops-sm.svg';
 import starkySM from '../assets/img/starky-sm.svg';
 import starkyLg from '../assets/img/starky-lg.svg';
 
+export const getRandomAvatar = () => {
+    const avatars = [
+        aqualineSm,
+        aqualineMd,
+        aqualineLg,
+        piceratopsSm,
+        piceratopsLg,
+        starkySM,
+        starkyLg,
+        leafersMd,
+        duskpinLg
+    ]
+    const randomIdx = arr => {
+        return Math.floor(Math.random() * arr.length)
+    }
+    return avatars[randomIdx(avatars)]
+}
+
 export const STUDENTS = [
     {
         id: 0,

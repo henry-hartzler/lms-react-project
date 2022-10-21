@@ -6,11 +6,14 @@ import { addStudent } from "./studentsSlice";
 import sparky from '../../app/assets/img/starky-sm.svg';
 import piceratops from '../../app/assets/img/piceratops-sm.svg';
 import { validateStudentForm } from "../../utils/validateStudentForm";
+import { getRandomAvatar } from "../../app/shared/STUDENTS";
 
 const StudentForm = ({ studentId }) => {
     const [modalOpen, setModalOpen] = useState(false);
 
     const dispatch = useDispatch();
+
+    let randomAv = getRandomAvatar();
 
     const handleSubmit = values => {
         const student = {
@@ -20,6 +23,7 @@ const StudentForm = ({ studentId }) => {
             points: 0
         }
         dispatch(addStudent(student))
+        randomAv = getRandomAvatar();
         setModalOpen(false)
     }
 
@@ -65,6 +69,7 @@ const StudentForm = ({ studentId }) => {
                                     <option>Select...</option>
                                     <option value={sparky}>Sparky</option>
                                     <option value={piceratops}>Piceratops</option>
+                                    <option value={randomAv}>RANDOM</option>
                                 </Field>
                                 <ErrorMessage name='img'>
                                         {(msg) => <p className="text-danger">{msg}</p>}
