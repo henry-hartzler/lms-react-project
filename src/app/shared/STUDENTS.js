@@ -12,7 +12,13 @@ export const getRandomAvatar = () => {
     const avatars = [
         aqualineSm,
         aqualineMd,
-        aqualineLg
+        aqualineLg,
+        piceratopsSm,
+        piceratopsLg,
+        starkySM,
+        starkyLg,
+        leafersMd,
+        duskpinLg
     ]
     const randomIdx = arr => {
         return Math.floor(Math.random() * arr.length)
