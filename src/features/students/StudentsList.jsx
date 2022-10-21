@@ -4,8 +4,8 @@ import StudentCard from "./StudentCard";
 import { selectAllStudents } from "./studentsSlice";
 import StudentForm from "./StudentForm";
 
-//may not need studentId
-const StudentsList = ({ studentId }) => {
+//may not need studentId but also may need for StudentDetailPage
+const StudentsList = ({studentId}) => {
     const students = useSelector(selectAllStudents);
 
     return students && students.length > 0 ? (

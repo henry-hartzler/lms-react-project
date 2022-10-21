@@ -3,7 +3,5 @@ export const validateStudentForm = values => {
 
     if (!values.name) errors.name = 'Required'
 
-    if (!values.img) errors.img = 'Required'
-
     return errors
 }

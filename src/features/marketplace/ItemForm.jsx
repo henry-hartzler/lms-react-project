@@ -16,6 +16,7 @@ const ItemForm = () => {
             name: values.name,
             price: values.price,
             inv: values.inv,
+            //eventually make an option list so that the img reflects the prize (XP, Avatar, Prize, etc)
             img: star
         }
         dispatch(addItem(item))
