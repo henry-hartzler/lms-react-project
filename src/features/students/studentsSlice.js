@@ -11,7 +11,8 @@ const studentsSlice = createSlice({
     reducers: {
         addStudent: (state, action) => {
             const newStudent = {
-                id: state.studentsArray.length + 1,
+                //the length will always be 1 bigger than the prev because of zero index
+                id: state.studentsArray.length,
                 ...action.payload
             }
             state.studentsArray.push(newStudent)

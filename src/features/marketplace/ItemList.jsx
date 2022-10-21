@@ -2,13 +2,16 @@ import { useSelector } from "react-redux";
 import { Row, Col } from "reactstrap";
 import ItemCard from "./ItemCard";
 import { selectAllItems } from "./itemSlice";
+import ItemForm from "./ItemForm";
 
 const ItemList = () => {
     const items = useSelector(selectAllItems);
 
-    if (items && items.length > 0) {
-        return (
+    return items && items.length > 0 ? (
             <Row className="ms-auto">
+                <Col md='12' className="d-flex justify-content-end m-3">
+                    <ItemForm />
+                </Col>
                 {items.map(item => {
                     return (
                         <Col
@@ -21,14 +24,11 @@ const ItemList = () => {
                     )
                 })}
             </Row>
-        );
-    }
-
-    return (
-        <Row className="m-4">
-            <h1>There are currently no items listed in the Marketplace.</h1>
-        </Row>
-    )
+        ) : (
+            <Row className="m-4">
+                <h1>There are currently no items listed in the Marketplace.</h1>
+            </Row>
+        )
 }
  
 export default ItemList;

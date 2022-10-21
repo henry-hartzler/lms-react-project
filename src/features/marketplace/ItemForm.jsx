@@ -2,45 +2,42 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";  
 import { Button, Modal, ModalBody, ModalHeader, FormGroup, Label } from "reactstrap";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import { addStudent } from "./studentsSlice";
-import sparky from '../../app/assets/img/starky-sm.svg';
-import piceratops from '../../app/assets/img/piceratops-sm.svg';
-import { validateStudentForm } from "../../utils/validateStudentForm";
-import { getRandomAvatar } from "../../app/shared/STUDENTS";
+import { addItem } from "./itemSlice";
+import { validateItemForm } from "../../utils/validateItemForm";
+import star from '../../app/assets/img/star-icon.svg';
 
-const StudentForm = ({ studentId }) => {
+const ItemForm = () => {
     const [modalOpen, setModalOpen] = useState(false);
 
     const dispatch = useDispatch();
 
-    let randomAv = getRandomAvatar();
-
     const handleSubmit = values => {
-        const student = {
+        const item = {
             name: values.name,
-            img: values.img,
-            points: 0
+            price: values.price,
+            inv: values.inv,
+            img: star
         }
-        dispatch(addStudent(student))
-        randomAv = getRandomAvatar();
+        dispatch(addItem(item))
         setModalOpen(false)
     }
 
     return (
         <>
             <Button size="lg" outline color="success" onClick={() => setModalOpen(true)}>
-                <i className="fa-solid fa-plus"></i> Add Student
+                <i className="fa-solid fa-plus"></i> Add Item
             </Button>
             <Modal isOpen={modalOpen}>
-                <ModalHeader toggle={() => setModalOpen(false)}>Add Student</ModalHeader>
+                <ModalHeader toggle={() => setModalOpen(false)}>Add Item</ModalHeader>
                 <ModalBody>
                     <Formik
                         initialValues={{
                             name: '',
-                            img: undefined
+                            price: '',
+                            inv: ''
                         }}
                         onSubmit={handleSubmit}
-                        validate={validateStudentForm}
+                        validate={validateItemForm}
                     >
                         <Form>
                             <FormGroup>
@@ -49,7 +46,7 @@ const StudentForm = ({ studentId }) => {
                                 </Label>
                                 <Field
                                     name='name'
-                                    placeholder='Student name'
+                                    placeholder='Item name'
                                     className='form-control'
                                 />
                                 <ErrorMessage name='name'>
@@ -57,20 +54,28 @@ const StudentForm = ({ studentId }) => {
                                     </ErrorMessage>
                             </FormGroup>
                             <FormGroup>
-                                <Label htmlFor="img">
-                                    Avatar
+                                <Label htmlFor="price">
+                                    Price
                                 </Label>
                                 <Field
-                                    name='img'
-                                    as='select'
+                                    name='price'
+                                    placeholder='Price'
                                     className='form-control'
-                                >
-                                    <option>Select...</option>
-                                    <option value={sparky}>Sparky</option>
-                                    <option value={piceratops}>Piceratops</option>
-                                    <option value={randomAv}>RANDOM</option>
-                                </Field>
-                                <ErrorMessage name='img'>
+                                />
+                                <ErrorMessage name='price'>
+                                        {(msg) => <p className="text-danger">{msg}</p>}
+                                    </ErrorMessage>
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="inv">
+                                    Inventory
+                                </Label>
+                                <Field
+                                    name='inv'
+                                    placeholder='Number of inventory'
+                                    className='form-control'
+                                />
+                                <ErrorMessage name='inv'>
                                         {(msg) => <p className="text-danger">{msg}</p>}
                                     </ErrorMessage>
                             </FormGroup>
@@ -85,4 +90,4 @@ const StudentForm = ({ studentId }) => {
       );
 }
  
-export default StudentForm;
+export default ItemForm;
