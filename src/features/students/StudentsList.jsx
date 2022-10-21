@@ -29,8 +29,14 @@ const StudentsList = ({ studentId }) => {
     }
 
     return (
-        <Row className="m-4">
-            <h1>There are currently no students registered.</h1>
+        <Row className="m-4 ms-auto">
+            <Col md='12' className="d-flex justify-content-end m-3">
+                <StudentForm studentId={studentId} />
+            </Col>
+            <Col>
+                <h1>There are currently no students registered.</h1>
+            </Col>
+            
         </Row>
     );
     
