@@ -8,7 +8,7 @@ const ItemList = () => {
     const items = useSelector(selectAllItems);
 
     return items && items.length > 0 ? (
-            <Row className="ms-auto">
+            <Row className="ms-auto d-flex align-items-center">
                 <Col md='12' className="d-flex justify-content-end m-3">
                     <ItemForm />
                 </Col>

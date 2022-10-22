@@ -5,6 +5,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import { addItem } from "./itemSlice";
 import { validateItemForm } from "../../utils/validateItemForm";
 import star from '../../app/assets/img/star-icon.svg';
+import store from '../../app/assets/img/store.png';
 
 const ItemForm = () => {
     const [modalOpen, setModalOpen] = useState(false);
@@ -17,7 +18,7 @@ const ItemForm = () => {
             price: values.price,
             inv: values.inv,
             //eventually make an option list so that the img reflects the prize (XP, Avatar, Prize, etc)
-            img: star
+            img: values.img
         }
         dispatch(addItem(item))
         setModalOpen(false)
@@ -56,7 +57,7 @@ const ItemForm = () => {
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="price">
-                                    Price
+                                    Price ($)
                                 </Label>
                                 <Field
                                     name='price'
@@ -69,7 +70,7 @@ const ItemForm = () => {
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="inv">
-                                    Inventory
+                                    Inventory (#)
                                 </Label>
                                 <Field
                                     name='inv'
@@ -77,6 +78,23 @@ const ItemForm = () => {
                                     className='form-control'
                                 />
                                 <ErrorMessage name='inv'>
+                                        {(msg) => <p className="text-danger">{msg}</p>}
+                                    </ErrorMessage>
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="img">
+                                    Reward Type
+                                </Label>
+                                <Field
+                                        name='img'
+                                        as='select'
+                                        className='form-control'
+                                    >
+                                        <option>Select...</option>
+                                        <option value={star}>Online</option>
+                                        <option value={store}>In-person</option>
+                                    </Field>
+                                    <ErrorMessage name='img'>
                                         {(msg) => <p className="text-danger">{msg}</p>}
                                     </ErrorMessage>
                             </FormGroup>
