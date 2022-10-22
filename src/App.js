@@ -5,18 +5,27 @@ import MarketPlace from './pages/MarketPlace';
 import CoursesPage from './pages/CoursesPage';
 import RewardStudents from './pages/RewardStudents';
 import { Route, Routes } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
 import './App.css';
+import {Row, Col} from 'reactstrap';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='courses' element={<CoursesPage />} />
-        <Route path='marketplace' element={<MarketPlace />} />
-        <Route path='rewards' element={<RewardStudents />} />
-      </Routes>
+      <Row noGutters>
+        <Col sm="2">
+          <Sidebar />
+        </Col>
+        <Col>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='courses' element={<CoursesPage />} />
+            <Route path='marketplace' element={<MarketPlace />} />
+            <Route path='rewards' element={<RewardStudents />} />
+          </Routes>     
+        </Col>
+      </Row>
       <Footer />
     </div>
   );

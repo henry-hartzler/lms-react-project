@@ -1,10 +1,21 @@
-import { Container } from "reactstrap";
-
+import {  Card, CardImgOverlay, CardImg, CardTitle } from "reactstrap";
+import learning from '../app/assets/img/article-learningstyles-banner.jpg'
 const HomePage = () => {
     return (
-        <Container>
-          <h2>HomePage to follow</h2>
-        </Container>
+          <div>
+            <Card inverse>
+              <CardImg
+                alt="Card image cap"
+                src={learning}
+                width="100%"
+              />
+              <CardImgOverlay>
+                <CardTitle tag="h1">
+                  Welcome to Learning
+                </CardTitle>
+              </CardImgOverlay>
+            </Card>
+          </div>
       );
 }
  
