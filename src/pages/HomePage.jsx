@@ -15,7 +15,7 @@ const HomePage = () => {
               />
               <CardImgOverlay>
                 <CardTitle className="p-3" tag="h1">
-                  <span className="blackPearl badge text-white">Welcome to <span className="text-success">Fresh Start</span> LMS</span>
+                  <span className="blackPearl badge text-white rounded-pill">Welcome to <span className="text-success">Fresh Start</span> LMS</span>
                   
                 </CardTitle>
               </CardImgOverlay>
