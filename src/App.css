@@ -42,3 +42,8 @@
 .navbar-brand img {
   margin-right: 1rem;
 }
+
+.blackPearl {
+  background-color: rgb(10,25,41);
+  font-size: 1.1em;
+}

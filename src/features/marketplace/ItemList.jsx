@@ -9,7 +9,7 @@ const ItemList = () => {
 
     return items && items.length > 0 ? (
             <Row className="ms-auto d-flex align-items-center">
-                <Col md='12' className="d-flex justify-content-end m-3">
+                <Col xs='12' className="m-3 mt-4">
                     <ItemForm />
                 </Col>
                 {items.map(item => {

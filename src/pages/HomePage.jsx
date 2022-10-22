@@ -1,21 +1,26 @@
 import {  Card, CardImgOverlay, CardImg, CardTitle } from "reactstrap";
-import learning from '../app/assets/img/article-learningstyles-banner.jpg'
+import learning from '../app/assets/img/classroom.png';
+import { Container } from "reactstrap";
+import '../App.css';
+
 const HomePage = () => {
+
     return (
-          <div>
+          <Container className="blackPearl">
             <Card inverse>
               <CardImg
                 alt="Card image cap"
                 src={learning}
-                width="100%"
+                className="img-fluid min-vh-100"
               />
               <CardImgOverlay>
-                <CardTitle tag="h1">
-                  Welcome to Learning
+                <CardTitle className="p-3" tag="h1">
+                  <span className="blackPearl badge text-white">Welcome to <span className="text-success">Fresh Start</span> LMS</span>
+                  
                 </CardTitle>
               </CardImgOverlay>
             </Card>
-          </div>
+          </Container>
       );
 }
  
