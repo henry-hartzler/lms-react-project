@@ -1,25 +1,40 @@
+import { useSelector } from "react-redux";
 import { Row, Col } from "reactstrap";
 import StudentCard from "./StudentCard";
 import { selectAllStudents } from "./studentsSlice";
+import StudentForm from "./StudentForm";
 
-const StudentsList = () => {
-    const students = selectAllStudents();
+//may not need studentId but also may need for StudentDetailPage
+const StudentsList = ({studentId}) => {
+    const students = useSelector(selectAllStudents);
 
-    return (
-        <Row className="ms-auto">
-            {students.map(student => {
-                return (
-                    <Col
-                        md='3'
-                        className="m-4"
-                        key={student.id}
-                    >
-                        <StudentCard student={student} />
-                    </Col>
-                )
-            })}
+    return students && students.length > 0 ? (
+        <Row className="ms-auto d-flex align-items-center">
+                <Col md='12' className="d-flex justify-content-end m-3">
+                    <StudentForm />
+                </Col>
+                {students.map(student => {
+                    return (
+                        <Col
+                            md='3'
+                            className="m-4"
+                            key={student.id}
+                        >
+                            <StudentCard student={student} />
+                        </Col>
+                    )
+                })}
+            </Row>
+        ) : (
+        <Row className="m-4 ms-auto">
+            <Col md='12' className="d-flex justify-content-end m-3">
+                <StudentForm />
+            </Col>
+            <Col>
+                <h1>There are currently no students registered.</h1>
+            </Col>
         </Row>
-    );
-}
+    )
+}   
  
 export default StudentsList;
