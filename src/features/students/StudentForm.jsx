@@ -3,12 +3,10 @@ import { useDispatch } from "react-redux";
 import { Button, Modal, ModalBody, ModalHeader, FormGroup, Label } from "reactstrap";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { addStudent } from "./studentsSlice";
-import sparky from '../../app/assets/img/starky-sm.svg';
-import piceratops from '../../app/assets/img/piceratops-sm.svg';
 import { validateStudentForm } from "../../utils/validateStudentForm";
 import { getRandomAvatar } from "../../app/shared/STUDENTS";
 
-const StudentForm = ({ studentId }) => {
+const StudentForm = () => {
     const [modalOpen, setModalOpen] = useState(false);
 
     const dispatch = useDispatch();
@@ -17,9 +15,9 @@ const StudentForm = ({ studentId }) => {
 
     const handleSubmit = values => {
         const student = {
-            studentId: parseInt(studentId),
             name: values.name,
-            img: values.img,
+            //avatars are selected at random
+            img: randomAv,
             points: 0
         }
         dispatch(addStudent(student))
@@ -37,8 +35,7 @@ const StudentForm = ({ studentId }) => {
                 <ModalBody>
                     <Formik
                         initialValues={{
-                            name: '',
-                            img: undefined
+                            name: ''
                         }}
                         onSubmit={handleSubmit}
                         validate={validateStudentForm}
@@ -54,24 +51,6 @@ const StudentForm = ({ studentId }) => {
                                     className='form-control'
                                 />
                                 <ErrorMessage name='name'>
-                                        {(msg) => <p className="text-danger">{msg}</p>}
-                                    </ErrorMessage>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="img">
-                                    Avatar
-                                </Label>
-                                <Field
-                                    name='img'
-                                    as='select'
-                                    className='form-control'
-                                >
-                                    <option>Select...</option>
-                                    <option value={sparky}>Sparky</option>
-                                    <option value={piceratops}>Piceratops</option>
-                                    <option value={randomAv}>RANDOM</option>
-                                </Field>
-                                <ErrorMessage name='img'>
                                         {(msg) => <p className="text-danger">{msg}</p>}
                                     </ErrorMessage>
                             </FormGroup>

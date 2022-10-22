@@ -4,14 +4,14 @@ import StudentCard from "./StudentCard";
 import { selectAllStudents } from "./studentsSlice";
 import StudentForm from "./StudentForm";
 
-const StudentsList = ({ studentId }) => {
+//may not need studentId but also may need for StudentDetailPage
+const StudentsList = ({studentId}) => {
     const students = useSelector(selectAllStudents);
 
-    if (students && students.length > 0) {
-        return (
-            <Row className="ms-auto">
+    return students && students.length > 0 ? (
+        <Row className="ms-auto">
                 <Col md='12' className="d-flex justify-content-end m-3">
-                    <StudentForm studentId={studentId} />
+                    <StudentForm />
                 </Col>
                 {students.map(student => {
                     return (
@@ -25,21 +25,16 @@ const StudentsList = ({ studentId }) => {
                     )
                 })}
             </Row>
-        );
-    }
-
-    return (
+        ) : (
         <Row className="m-4 ms-auto">
             <Col md='12' className="d-flex justify-content-end m-3">
-                <StudentForm studentId={studentId} />
+                <StudentForm />
             </Col>
             <Col>
                 <h1>There are currently no students registered.</h1>
             </Col>
-            
         </Row>
-    );
-    
-}
+    )
+}   
  
 export default StudentsList;

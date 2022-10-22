@@ -11,7 +11,7 @@ const itemsSlice = createSlice({
     reducers: {
         addItem: (state, action) => {
             const newItem = {
-                id: state.itemsArray.length + 1,
+                id: state.itemsArray.length,
                 ...action.payload
             }
             state.itemsArray.push(newItem)
